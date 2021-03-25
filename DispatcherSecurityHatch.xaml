@@ -73,6 +73,8 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="DispatcherSecurityHatch" sap:VirtualizedContainerService.HintSize="1020,2113" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -86,7 +88,8 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="978,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="AccessAcme.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="io_EntrySuccessful">[io_EntrySuccessful]</OutArgument>
+        <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_EntrySuccessful" />
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If Condition="[io_EntrySuccessful=False]" sap:VirtualizedContainerService.HintSize="978,1869" sap2010:WorkflowViewState.IdRef="If_1">
